@@ -40,7 +40,7 @@ for i in station_numbers:
 
     station_info += '{"updated": '+ updated + ', "stationid": '+ str(i) + ', "available": ' + available + ', "free": ' + free + ', "total": ' + total + ', "ticket": ' + ticket + ', "open": ' + is_open + ', "connected": ' + connected + "}\n"
 
-    if i == 5:
+    if i == 20:
         break
 
 f.write(station_info)
