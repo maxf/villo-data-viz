@@ -28,7 +28,6 @@ f = open('villo-data.jsonish','a')
 
 # retrieve new data
 for i in station_numbers:
-    print "fetching info for station: "+str(i)
     res = get("http://www.villo.be/service/stationdetails/bruxelles/"+str(i))
     root = ET.fromstring(res)
     available = root.find('available').text
@@ -46,4 +45,4 @@ for i in station_numbers:
 
 f.write(station_info)
 f.close()
-print("done")
+
