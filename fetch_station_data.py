@@ -50,9 +50,7 @@ def fetch():
             updated = root.find('updated').text
             connected = root.find('connected').text
             station_info += '<sample updated="'+ updated + '" stationid="'+ str(i) + '" available="' + available + '" free="' + free + '" total="' + total + ' tickets="' + ticket + '" open="' + is_open + '" connected="' + connected + '"/>'
-            #        counter += 1
-            #        if counter == 5:
-            #            break
+            sleep 2
     f.write(station_info)
     f.close()
 
