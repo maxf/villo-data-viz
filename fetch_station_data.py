@@ -27,7 +27,7 @@ def fetch():
     print("-----fetch ----")
     
     #fetch the existing data file
-    f = open('villo-data.jsonish','a')
+    f = open('data.xmlish','a')
 
     station_info = ""
     counter = 0
@@ -45,7 +45,7 @@ def fetch():
         updated = root.find('updated').text
         connected = root.find('connected').text
     
-        station_info += '{"updated": '+ updated + ', "stationid": '+ str(i) + ', "available": ' + available + ', "free": ' + free + ', "total": ' + total + ', "ticket": ' + ticket + ', "open": ' + is_open + ', "connected": ' + connected + "}\n"
+        station_info += '<sample updated="'+ updated + '" stationid="'+ str(i) + '" available="' + available + '" free="' + free + '" total="' + total + ' tickets="' + ticket + '" open="' + is_open + '" connected="' + connected + '"/>'
 
         print(station_info)
 
@@ -58,5 +58,9 @@ def fetch():
 
 
 while True:
-    fetch()
+    try:
+        fetch()
+    except:
+        print "Unexpected error - ignoring"
+
     time.sleep(100)
